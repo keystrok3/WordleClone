@@ -1,0 +1,47 @@
+:root {
+    box-sizing: border-box;
+}
+
+* {
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    width: 100%;
+    background-color: #000;
+}
+
+.container {
+    width: 50vmax;
+    margin: 0 auto;
+    background-color: #fff;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.board {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin: 2em;
+    padding: 1em 0 1em 0;
+    border: 1px solid grey;
+}
+
+.row {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.row .col {
+    width: 14%;
+    aspect-ratio: 1 / 1;
+    margin: .5em;
+    border: 1px solid grey;
+}
