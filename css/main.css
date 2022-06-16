@@ -14,7 +14,7 @@ body {
 }
 
 .container {
-    width: 50vmax;
+    width: 40vmax;
     margin: 0 auto;
     background-color: #fff;
 
@@ -24,7 +24,7 @@ body {
 }
 
 .board {
-    width: 80%;
+    width: 85%;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -44,4 +44,13 @@ body {
     aspect-ratio: 1 / 1;
     margin: .5em;
     border: 1px solid grey;
+}
+
+.col {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: black;
+    font-size: 2rem;
+    font-weight: 700;
 }

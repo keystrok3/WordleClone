@@ -27,7 +27,6 @@ export function word_checker(secret_word, word_array) {
             continue;
         }
     }
-    console.log(word_guess)
     return word_guess;
 }
 
