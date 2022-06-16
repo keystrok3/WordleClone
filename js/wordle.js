@@ -1,27 +1,34 @@
+// export function letter_typer(letter, word_array ) {
+//     if(word_array.length === 5) return;
+//     word_array.push(letter.toLowerCase());
+// }
 
-let CURRENT_ATTEMPT = 0;
-
-
-// Runs in main.js on a keydown event
-// Second parameter is array of arrays that contains words (guesses)
-export function letter_typer(e, attempts_array) {
-    let word_array = attempts_array[CURRENT_ATTEMPT];
-
-    // check if key pressed is an alphabetic letter
-    let letterkey = e.key;
-    if((/[a-zA-Z]/).test(letterkey)) {
-        word_array.push(letterkey);
-        word_watcher(attempts_array, word_array);
-    }
+export function guess_checker(secret_word, word_array) {
+    return word_checker(secret_word, word_array);
 }
 
-// Called by letter_typer()  when the array (in params) is full
-export function word_watcher(attempts_array, word_array) {
-    if(word_array.length === 5) {
-        // call evaluator
-        CURRENT_ATTEMPT += 1;
-        console.log(attempts_array)
+
+export function word_checker(secret_word, word_array) {
+    // C -> correct position; W -> Wrong Position; F -> No such letter
+    let secretWord = secret_word.split("");
+    
+    let word_guess = word_array;
+    for(let i = 0;  i < word_guess.length; i++) {
+        if(word_guess[i] === secretWord[i]) {
+            word_guess[i] = "C";
+            continue;
+        }
+        if((word_guess[i] !== secretWord[i]) && (secretWord.includes(word_guess[i]) === true)) {
+            word_guess[i] = "W";
+            continue;
+        }
+        if((word_guess[i] !== secretWord[i]) && secretWord.includes(word_guess[i]) === false) {
+            word_guess[i] = "F";
+            continue;
+        }
     }
+    console.log(word_guess)
+    return word_guess;
 }
 
 
